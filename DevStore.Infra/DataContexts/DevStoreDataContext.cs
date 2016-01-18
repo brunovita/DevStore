@@ -1,4 +1,5 @@
 ﻿using DevStore.Domain;
+using DevStore.Infra.Mappings;
 using System.Data.Entity;
 
 namespace DevStore.Infra.DataContexts
@@ -13,6 +14,13 @@ namespace DevStore.Infra.DataContexts
         {
             // Será executado no início da aplicação
             Database.SetInitializer<DevStoreDataContext>(new DevStoreDataContextInitializer());
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new ProductMap()); // Configurações de mapeamento da entidade Product
+            modelBuilder.Configurations.Add(new CategoryMap()); // Configurações de mapeamento da entidade Category
+            base.OnModelCreating(modelBuilder);
         }
     }
 
