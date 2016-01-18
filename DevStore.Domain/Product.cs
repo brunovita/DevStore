@@ -10,8 +10,8 @@ namespace DevStore.Domain
         public DateTime AcquireDate { get; set; }
         public bool IsActive { get; set; }
 
-        public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
+        public int CategoryId { get; set; } // Utilizado para relacionamento com Category
+        public virtual Category Category { get; set; } // Utilizado para obter acesso as proriedades de Category em tempo de execução
 
         // Method Constructor
         public Product()
