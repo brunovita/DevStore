@@ -14,13 +14,13 @@ namespace DevStore.Infra.Mappings
         {
             ToTable("Product");
 
-            HasKey(x => x.Id); // Diz que ID é a chave
+            HasKey(x => x.Id);
 
             Property(x => x.Title).HasMaxLength(160).IsRequired();
             Property(x => x.Price).IsRequired();
             Property(x => x.AcquireDate).IsRequired();
 
-            HasRequired(x => x.Category); // Faz a junção com as Categorias na hora de gerar o BD
+            HasRequired(x => x.Category);
         }
     }
 }

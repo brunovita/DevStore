@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevStore.Domain", "DevStore.Domain\DevStore.Domain.csproj", "{E2D05F1F-85DD-4E39-A572-8BF3AC7714FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevStore.Infra", "DevStore.Infra\DevStore.Infra.csproj", "{9A1F3850-7DA4-49E3-BEA3-8DF43588AFC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevStore.Api", "DevStore.Api\DevStore.Api.csproj", "{BDE55177-1781-4A70-938C-AD2AC26A259C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9A1F3850-7DA4-49E3-BEA3-8DF43588AFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A1F3850-7DA4-49E3-BEA3-8DF43588AFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A1F3850-7DA4-49E3-BEA3-8DF43588AFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE55177-1781-4A70-938C-AD2AC26A259C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE55177-1781-4A70-938C-AD2AC26A259C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE55177-1781-4A70-938C-AD2AC26A259C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE55177-1781-4A70-938C-AD2AC26A259C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

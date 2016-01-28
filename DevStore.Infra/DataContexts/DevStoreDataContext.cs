@@ -6,15 +6,17 @@ namespace DevStore.Infra.DataContexts
 {
     public class DevStoreDataContext : DbContext
     {
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-
         // Method Constructor
-        public DevStoreDataContext() : base ("DevStoreConnectionString")
+        public DevStoreDataContext() : base("DevStoreConnectionString")
         {
             // Será executado no início da aplicação
             Database.SetInitializer<DevStoreDataContext>(new DevStoreDataContextInitializer());
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,21 +30,21 @@ namespace DevStore.Infra.DataContexts
     {
         protected override void Seed(DevStoreDataContext context)
         {
-            // Adiciona ao contexto
             context.Categories.Add(new Category { Id = 1, Title = "Informática" });
             context.Categories.Add(new Category { Id = 2, Title = "Games" });
             context.Categories.Add(new Category { Id = 3, Title = "Papelaria" });
-            context.SaveChanges(); // Efetiva gravação no BD
+            context.SaveChanges();
 
-            // Adiciona ao contexto
-            context.Products.Add(new Product { Id = 1, CategoryId = 1, Title = "Mouse", IsActive = true, Price = 35.90M });
-            context.Products.Add(new Product { Id = 2, CategoryId = 1, Title = "Monitor LCD", IsActive = true, Price = 134.99M });
-            context.Products.Add(new Product { Id = 3, CategoryId = 1, Title = "Processador Intel Core i7", IsActive = true, Price = 279.90M });
-            context.Products.Add(new Product { Id = 4, CategoryId = 2, Title = "Metal Gear", IsActive = true, Price = 250.00M });
-            context.Products.Add(new Product { Id = 5, CategoryId = 2, Title = "Antil Dawn", IsActive = true, Price = 135.50M });
-            context.Products.Add(new Product { Id = 6, CategoryId = 2, Title = "The Last of Us", IsActive = true, Price = 290.90M });
-            context.Products.Add(new Product { Id = 7, CategoryId = 3, Title = "Papel Sulfite", IsActive = true, Price = 15.90M });
-            context.SaveChanges();// Efetiva gravação no BD
+            context.Products.Add(new Product { Id = 1, CategoryId = 1, IsActive = true, Title = "Mouse Microsoft Confort 5000", Price = 99 });
+            context.Products.Add(new Product { Id = 2, CategoryId = 1, IsActive = true, Title = "Teclado Microsoft Confort 5000", Price = 199 });
+            context.Products.Add(new Product { Id = 3, CategoryId = 1, IsActive = true, Title = "Mouse Pad Razor", Price = 59 });
+
+            context.Products.Add(new Product { Id = 4, CategoryId = 2, IsActive = true, Title = "Gears of War", Price = 59 });
+            context.Products.Add(new Product { Id = 5, CategoryId = 2, IsActive = true, Title = "Gears of War 2", Price = 79 });
+            context.Products.Add(new Product { Id = 6, CategoryId = 2, IsActive = true, Title = "Gears of War 3", Price = 99 });
+
+            context.Products.Add(new Product { Id = 7, CategoryId = 3, IsActive = true, Title = "Papel Sulfite 1000 folhas", Price = 9.89M });
+            context.SaveChanges();
 
             base.Seed(context);
         }
